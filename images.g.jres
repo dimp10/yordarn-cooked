@@ -69,6 +69,16 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage"
     },
+    "image15": {
+        "data": "hwQQABAAAAAAAPD/////AAAAX1VVVf8AAPBVVVX1/wAAX1VV9f//AABfVVX/Vf8AAF9V/19V/wAAX/9fVVX1AABfX1VVVfUAAF9fVVVV9QAA8F9VVVX1AAAAX1VVVfUAAABfVVVV9QAAAF9VVVX1AAAA8FVVVf8AAAAAX1VVDwAAAADw//8PAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "taco shell"
+    },
+    "image16": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "myImage0"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",
