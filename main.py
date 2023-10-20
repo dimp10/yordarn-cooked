@@ -125,10 +125,11 @@ def rat_steal(rat, plate):
 sprites.on_overlap(SpriteKind.enemy, SpriteKind.plate, rat_steal)
 
 def catch_rat(player, rat):
-    blood = sprites.create(assets.image("Blood"), SpriteKind.recipe_items)
-    animation.run_image_animation(blood, [], 500, False)
+    animation.run_image_animation(rat, [], 500, False)
+    blood = sprites.create(assets.image("Blood"), SpriteKind.food)
+    blood.set_position(rat.x, rat.y)
     rat.destroy()
-    info.change_score_by(300)
+#    info.change_score_by(300)
 
 sprites.on_overlap(SpriteKind.player, SpriteKind.enemy, catch_rat)
 
