@@ -154,7 +154,8 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.plate, function rat_steal(rat: Sp
     rat.follow(sprites.allOfKind(SpriteKind.belt)[0], 30)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function catch_rat(player: Sprite, rat: Sprite) {
-    animation.runImageAnimation(null, [], 500, false)
+    let blood = sprites.create(assets.image`Blood`, SpriteKind.recipe_items)
+    animation.runImageAnimation(blood, [], 500, false)
     rat.destroy()
     info.changeScoreBy(300)
 })

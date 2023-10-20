@@ -79,6 +79,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage0"
     },
+    "image17": {
+        "data": "hwQQABAAAAAAAAAAIgIAAAAgIiIiIgAAACIiIiIiAgAgIiIiIiICACAiIiIiIgIAICIiIiIiIgAgIiIiIiIiACAiIiIiIiIAICIiIiIiIgAgIiIiIiIiACAiIiIiIgIAICIiIiIiAAAgIiIiIiIAAAAgIiIiAgAAAAAiIiICAAAAACAiIgAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Blood"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",
