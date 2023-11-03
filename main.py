@@ -18,8 +18,8 @@ pan = sprites.create(assets.image("pan"), SpriteKind.pan) # add
 # setup
 scene.center_camera_at(80, 68)
 info.start_countdown(60)
-ingredients = ["meat", "bread", "lettuce", "tomato"]
-prepared_ingredients = ["cooked meat", "bread", "lettuce", "tomato"] # add
+ingredients = ["meat", "bread", "lettuce", "tomato",]
+prepared_ingredients = ["cooked meat", "bread", "lettuce", "tomato", "blood"] # add
 
 def setup():
     scene.set_tile_map_level(assets.tilemap("kitchen"))
@@ -41,7 +41,9 @@ def create_order():
     if randint(1, 2) == 1:
         recipe.append(prepared_ingredients[2]) # edit
     if randint(1, 2) == 1:
-        recipe.append(prepared_ingredients[3]) # edit
+        recipe.append(prepared_ingredients[3])
+    if randint(1, 2) == 1:
+        recipe.append(prepared_ingredients[4]) # edit
     plate = sprites.create(assets.image("plate"), SpriteKind.plate)
     plate.scale = 1/3
     tiles.place_on_random_tile(plate, assets.tile("counter"))

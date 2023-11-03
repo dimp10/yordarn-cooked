@@ -19,7 +19,7 @@ let pan = sprites.create(assets.image`pan`, SpriteKind.pan)
 scene.centerCameraAt(80, 68)
 info.startCountdown(60)
 let ingredients = ["meat", "bread", "lettuce", "tomato"]
-let prepared_ingredients = ["cooked meat", "bread", "lettuce", "tomato"]
+let prepared_ingredients = ["cooked meat", "bread", "lettuce", "tomato", "blood"]
 //  add
 function setup() {
     let icon: Sprite;
@@ -53,6 +53,10 @@ function create_order() {
     //  edit
     if (randint(1, 2) == 1) {
         recipe.push(prepared_ingredients[3])
+    }
+    
+    if (randint(1, 2) == 1) {
+        recipe.push(prepared_ingredients[4])
     }
     
     //  edit
