@@ -74,15 +74,15 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage0"
     },
-    "image17": {
-        "data": "hwQQABAAAAAgAAAAIgIAAAAgIiIiIgACACIiIiIiAgIgIiIiIiICAiAiIiIiIgIAIiIiIiIiIgAiIiIiIiIiACIiIiIiIiIAIiIiIiIiIgAiIiIiIiIiACIiIiIiIgIAICIiIiIiAgAgIiIiIiIiAgAgIiIiAiICIgAiIiICIAICACAiIgAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Blood"
-    },
     "image14": {
         "data": "hwQQABAAAAAAAAAAAAAAAADw//////8PAF9VVfVVVfXwVf9VX/Vf9fBV//Vf9V/18FVV9VVVVfXw9VX/VVVV9fD1VV/1VV8P8FVVX//1Xw/w9fVfVfX1APBf9VVVVfUA8FVf9V9VDwDwVV9fVV8PAPD1Vf9V9QAA8P////8PAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage"
+    },
+    "image17": {
+        "data": "hwQQABAAAAAgAAAAIgIAAAAgIiIiIgACACIiMiIiAgIgIiIzIiICAiAiIiMiIgIAIiIiKSIiIgAiIpKZIiIiACIikpkiIiIAIiKSmSIiIgAiIpKZIiIiACIiIiIiIgIAICIiIiIiAgAgIiIiIiIiAgAgIiIiAiICIgAiIiICIAICACAiIgAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Blood"
     },
     "anim1": {
         "namespace": "myAnimations",
