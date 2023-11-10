@@ -55,11 +55,6 @@ function create_order() {
         recipe.push(prepared_ingredients[3])
     }
     
-    if (randint(1, 2) == 1) {
-        recipe.push(prepared_ingredients[4])
-    }
-    
-    //  edit
     let plate = sprites.create(assets.image`plate`, SpriteKind.plate)
     plate.scale = 1 / 3
     tiles.placeOnRandomTile(plate, assets.tile`counter`)
@@ -163,6 +158,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function catch_rat(player
     let blood = sprites.create(assets.image`Blood`, SpriteKind.Food)
     blood.setPosition(rat.x, rat.y)
     rat.destroy()
+    recipe.push(prepared_ingredients[4])
 })
 game.onUpdate(function tick() {
     if (item_carrying) {

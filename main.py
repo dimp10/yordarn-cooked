@@ -42,8 +42,6 @@ def create_order():
         recipe.append(prepared_ingredients[2]) # edit
     if randint(1, 2) == 1:
         recipe.append(prepared_ingredients[3])
-    if randint(1, 2) == 1:
-        recipe.append(prepared_ingredients[4]) # edit
     plate = sprites.create(assets.image("plate"), SpriteKind.plate)
     plate.scale = 1/3
     tiles.place_on_random_tile(plate, assets.tile("counter"))
@@ -131,6 +129,7 @@ def catch_rat(player, rat):
     blood = sprites.create(assets.image("Blood"), SpriteKind.food)
     blood.set_position(rat.x, rat.y)
     rat.destroy()
+    recipe.append(prepared_ingredients[4])
 #    info.change_score_by(300)
 
 sprites.on_overlap(SpriteKind.player, SpriteKind.enemy, catch_rat)
