@@ -18,8 +18,9 @@ let pan = sprites.create(assets.image`pan`, SpriteKind.pan)
 //  setup
 scene.centerCameraAt(80, 68)
 info.startCountdown(60)
-let ingredients = ["meat", "bread", "lettuce", "tomato"]
-let prepared_ingredients = ["cooked meat", "bread", "lettuce", "tomato", "blood"]
+let blood = "Blood"
+let ingredients = ["meat", "bread", "lettuce", "tomato", "Blood"]
+let prepared_ingredients = ["cooked meat", "bread", "lettuce", "tomato", "rattt"]
 //  add
 function setup() {
     let icon: Sprite;
@@ -135,6 +136,11 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function prepare_ingredient(
         sprites.setDataString(item_carrying, "ingredient", "cooked meat")
     }
     
+    if (pan_close.length > 0 && ingredient == "Blood") {
+        item_carrying.setImage(assets.image`rattt`)
+        sprites.setDataString(item_carrying, "ingredient", "rattt")
+    }
+    
 })
 function rat_spawn() {
     let rat = sprites.create(assets.image`rat`, SpriteKind.Enemy)
@@ -155,8 +161,8 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.plate, function rat_steal(rat: Sp
 //     info.change_score_by(300)
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function catch_rat(player: Sprite, rat: Sprite) {
     animation.runImageAnimation(rat, [], 500, false)
-    let blood = sprites.create(assets.image`Blood`, SpriteKind.Food)
-    blood.setPosition(rat.x, rat.y)
+    let blood1 = sprites.create(assets.image`Blood`, SpriteKind.Food)
+    blood1.setPosition(rat.x, rat.y)
     rat.destroy()
     recipe.push(prepared_ingredients[4])
 })

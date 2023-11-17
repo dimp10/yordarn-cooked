@@ -18,8 +18,9 @@ pan = sprites.create(assets.image("pan"), SpriteKind.pan) # add
 # setup
 scene.center_camera_at(80, 68)
 info.start_countdown(60)
-ingredients = ["meat", "bread", "lettuce", "tomato",]
-prepared_ingredients = ["cooked meat", "bread", "lettuce", "tomato", "blood"] # add
+blood = "Blood"
+ingredients = ["meat", "bread", "lettuce", "tomato", "Blood"]
+prepared_ingredients = ["cooked meat", "bread", "lettuce", "tomato", "rattt"] # add
 
 def setup():
     scene.set_tile_map_level(assets.tilemap("kitchen"))
@@ -106,6 +107,9 @@ def prepare_ingredient():
     if len(pan_close) > 0 and ingredient == "meat":
         item_carrying.set_image(assets.image("cooked meat"))
         sprites.set_data_string(item_carrying, "ingredient", "cooked meat")
+    if len(pan_close) > 0 and ingredient == "Blood":
+        item_carrying.set_image(assets.image("rattt"))
+        sprites.set_data_string(item_carrying, "ingredient", "rattt")
 controller.B.on_event(ControllerButtonEvent.PRESSED, prepare_ingredient)
 
 def rat_spawn():
@@ -126,8 +130,8 @@ sprites.on_overlap(SpriteKind.enemy, SpriteKind.plate, rat_steal)
 
 def catch_rat(player, rat):
     animation.run_image_animation(rat, [], 500, False)
-    blood = sprites.create(assets.image("Blood"), SpriteKind.food)
-    blood.set_position(rat.x, rat.y)
+    blood1 = sprites.create(assets.image("Blood"), SpriteKind.food)
+    blood1.set_position(rat.x, rat.y)
     rat.destroy()
     recipe.append(prepared_ingredients[4])
 #    info.change_score_by(300)
