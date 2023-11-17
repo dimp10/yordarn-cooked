@@ -118,9 +118,9 @@ def rat_spawn():
     rat.lifespan = 10000
     tiles.place_on_random_tile(rat, assets.tile("crate"))
     rat.set_flag(SpriteFlag.GHOST_THROUGH_WALLS, True)
-    rat.follow(sprites.all_of_kind(SpriteKind.plate)[0], 30)
-    timer.after(randint(8000, 15000), rat_spawn)
-timer.after(randint(8000, 15000), rat_spawn)
+    rat.follow(sprites.all_of_kind(SpriteKind.player)[0], 30)
+    timer.after(randint(1, 2), rat_spawn)
+timer.after(randint(100, 200), rat_spawn)
 
 def rat_steal(rat, plate):
     sprites.destroy_all_sprites_of_kind(SpriteKind.plate)

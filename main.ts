@@ -148,11 +148,11 @@ function rat_spawn() {
     rat.lifespan = 10000
     tiles.placeOnRandomTile(rat, assets.tile`crate`)
     rat.setFlag(SpriteFlag.GhostThroughWalls, true)
-    rat.follow(sprites.allOfKind(SpriteKind.plate)[0], 30)
-    timer.after(randint(8000, 15000), rat_spawn)
+    rat.follow(sprites.allOfKind(SpriteKind.Player)[0], 30)
+    timer.after(randint(1, 2), rat_spawn)
 }
 
-timer.after(randint(8000, 15000), rat_spawn)
+timer.after(randint(100, 200), rat_spawn)
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.plate, function rat_steal(rat: Sprite, plate: Sprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.plate)
     create_order()
