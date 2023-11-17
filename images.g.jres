@@ -84,6 +84,16 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Blood"
     },
+    "image18": {
+        "data": "hwQQABAAAABAAAAARAQAAABARERERAAEAERE5EREBARARETuREQEBEBERE5ERAQARERETURERABERNTdREREAERE1N1EREQARETU3URERABERNTdREREAERERERERAQAQEREREREBABAREREREREBABAREREBEQERABEREQEQAQEAEBERAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "rattt"
+    },
+    "image19": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8AAADw//8ADwDwAB8REQ8PAP8AHx8fDw/wDwAfER///w8AAB8fHw8P8A8AHxERDw8A/wAfEREPDwDwAPD//wAPAAAAAAAAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "cook0"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",
