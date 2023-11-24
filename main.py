@@ -19,7 +19,7 @@ pan = sprites.create(assets.image("pan"), SpriteKind.pan) # add
 scene.center_camera_at(80, 68)
 info.start_countdown(60)
 blood = "Blood"
-ingredients = ["meat", "bread", "lettuce", "tomato", "Blood"]
+ingredients = ["meat", "bread", "lettuce", "tomato"]
 prepared_ingredients = ["cooked meat", "bread", "lettuce", "tomato", "rattt"] # add
 
 def setup():
@@ -104,12 +104,14 @@ def prepare_ingredient():
     global item_carrying
     pan_close = spriteutils.get_sprites_within(SpriteKind.pan, 24, cook)
     ingredient = sprites.read_data_string(item_carrying, "ingredient")
-    if len(pan_close) > 0 and ingredient == "meat":
-        item_carrying.set_image(assets.image("cooked meat"))
-        sprites.set_data_string(item_carrying, "ingredient", "cooked meat")
-    if len(pan_close) > 0 and ingredient == "Blood":
-        item_carrying.set_image(assets.image("rattt"))
-        sprites.set_data_string(item_carrying, "ingredient", "rattt")
+    if len(pan_close) > 0 and ingredient:
+        if ingredient == "meat":
+            item_carrying.set_image(assets.image("cooked meat"))
+            sprites.set_data_string(item_carrying, "ingredient", "cooked meat")
+            
+        elif ingredient == "Blood":
+            item_carrying.set_image(assets.image("rattt"))
+            sprites.set_data_string(item_carrying, "ingredient", "cooked meat")
 controller.B.on_event(ControllerButtonEvent.PRESSED, prepare_ingredient)
 
 def rat_spawn():
@@ -119,8 +121,8 @@ def rat_spawn():
     tiles.place_on_random_tile(rat, assets.tile("crate"))
     rat.set_flag(SpriteFlag.GHOST_THROUGH_WALLS, True)
     rat.follow(sprites.all_of_kind(SpriteKind.player)[0], 30)
-    timer.after(randint(1, 2), rat_spawn)
-timer.after(randint(100, 200), rat_spawn)
+    timer.after(randint(5000, 12000), rat_spawn)
+timer.after(randint(8000, 12000), rat_spawn)
 
 def rat_steal(rat, plate):
     sprites.destroy_all_sprites_of_kind(SpriteKind.plate)
@@ -130,8 +132,11 @@ sprites.on_overlap(SpriteKind.enemy, SpriteKind.plate, rat_steal)
 
 def catch_rat(player, rat):
     animation.run_image_animation(rat, [], 500, False)
+    ingredients.append("Blood")
     blood1 = sprites.create(assets.image("Blood"), SpriteKind.food)
     blood1.set_position(rat.x, rat.y)
+    sprites.set_data_string(blood1, "ingredient", "Blood")
+    # sprites.set_data_string(blood1, "ingredient", "tomato")
     rat.destroy()
     recipe.append(prepared_ingredients[4])
 #    info.change_score_by(300)

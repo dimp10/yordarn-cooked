@@ -19,7 +19,7 @@ let pan = sprites.create(assets.image`pan`, SpriteKind.pan)
 scene.centerCameraAt(80, 68)
 info.startCountdown(60)
 let blood = "Blood"
-let ingredients = ["meat", "bread", "lettuce", "tomato", "Blood"]
+let ingredients = ["meat", "bread", "lettuce", "tomato"]
 let prepared_ingredients = ["cooked meat", "bread", "lettuce", "tomato", "rattt"]
 //  add
 function setup() {
@@ -131,14 +131,15 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function prepare_ingredient(
     
     let pan_close = spriteutils.getSpritesWithin(SpriteKind.pan, 24, cook)
     let ingredient = sprites.readDataString(item_carrying, "ingredient")
-    if (pan_close.length > 0 && ingredient == "meat") {
-        item_carrying.setImage(assets.image`cooked meat`)
-        sprites.setDataString(item_carrying, "ingredient", "cooked meat")
-    }
-    
-    if (pan_close.length > 0 && ingredient == "Blood") {
-        item_carrying.setImage(assets.image`rattt`)
-        sprites.setDataString(item_carrying, "ingredient", "rattt")
+    if (pan_close.length > 0 && ingredient) {
+        if (ingredient == "meat") {
+            item_carrying.setImage(assets.image`cooked meat`)
+            sprites.setDataString(item_carrying, "ingredient", "cooked meat")
+        } else if (ingredient == "Blood") {
+            item_carrying.setImage(assets.image`rattt`)
+            sprites.setDataString(item_carrying, "ingredient", "cooked meat")
+        }
+        
     }
     
 })
@@ -149,10 +150,10 @@ function rat_spawn() {
     tiles.placeOnRandomTile(rat, assets.tile`crate`)
     rat.setFlag(SpriteFlag.GhostThroughWalls, true)
     rat.follow(sprites.allOfKind(SpriteKind.Player)[0], 30)
-    timer.after(randint(1, 2), rat_spawn)
+    timer.after(randint(5000, 12000), rat_spawn)
 }
 
-timer.after(randint(100, 200), rat_spawn)
+timer.after(randint(8000, 12000), rat_spawn)
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.plate, function rat_steal(rat: Sprite, plate: Sprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.plate)
     create_order()
@@ -161,8 +162,11 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.plate, function rat_steal(rat: Sp
 //     info.change_score_by(300)
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function catch_rat(player: Sprite, rat: Sprite) {
     animation.runImageAnimation(rat, [], 500, false)
+    ingredients.push("Blood")
     let blood1 = sprites.create(assets.image`Blood`, SpriteKind.Food)
     blood1.setPosition(rat.x, rat.y)
+    sprites.setDataString(blood1, "ingredient", "Blood")
+    //  sprites.set_data_string(blood1, "ingredient", "tomato")
     rat.destroy()
     recipe.push(prepared_ingredients[4])
 })
